@@ -16,6 +16,10 @@ export class VehicleService {
         return this.http.get<GetVehiclesResponse>(this.url);
     }
 
+    getByQuery(q: string) {
+        return this.http.get<GetVehiclesResponse>(this.url + '/find?q=' + q);
+    }
+
     getById(id: number) {
         return this.http.get<GetVehiclesResponse>(this.url + '/' + id);
     }
