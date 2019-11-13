@@ -34,10 +34,12 @@ export class VehicleEditComponent implements OnInit {
     this.vehicleEditForm = this.formBuilder.group({
       id: [''],
       veiculo: ['', Validators.required],
-      marca: [''],
-      ano: [''],
-      descricao: [''],
+      marca: ['', Validators.required],
+      ano: ['', Validators.required],
+      descricao: ['', Validators.required],
       vendido: [this.soldSelected],
+      created: [''],
+      updated: [''],
     });
 
     this.returnUrl = '/veiculos';

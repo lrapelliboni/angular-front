@@ -2,7 +2,7 @@
     <h1 class="h2">Veículos</h1>
 </div>
 
-<h3>Novo</h3>
+<h3>Editar</h3>
 
 <div class="card">
     <div class="card-body">
@@ -20,19 +20,31 @@
             <div class="form-group mb-3">
                 <label class="col-md-2">Marca</label>
                 <div class="col-md-10">
-                    <input type="text" formControlName="marca" class="form-control border-0 shadow-sm px-4" />
+                    <input type="text" formControlName="marca" class="form-control border-0 shadow-sm px-4"
+                        [ngClass]="{ 'is-invalid': submitted && f.marca.errors }" />
+                    <div *ngIf="submitted && f.marca.errors" class="invalid-feedback">
+                        <div *ngIf="f.marca.errors.required">Marca obrigatório</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group mb-3">
                 <label class="col-md-2">Ano</label>
                 <div class="col-md-10">
-                    <input type="text" formControlName="ano" class="form-control border-0 shadow-sm px-4" />
+                    <input type="text" formControlName="ano" class="form-control border-0 shadow-sm px-4"
+                        [ngClass]="{ 'is-invalid': submitted && f.ano.errors }" />
+                    <div *ngIf="submitted && f.ano.errors" class="invalid-feedback">
+                        <div *ngIf="f.ano.errors.required">Ano obrigatório</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group mb-3">
                 <label class="col-md-2">Descricao</label>
                 <div class="col-md-10">
-                    <textarea formControlName="descricao" class="form-control border-0 shadow-sm px-4"></textarea>
+                    <textarea formControlName="descricao" class="form-control border-0 shadow-sm px-4"
+                        [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }"></textarea>
+                    <div *ngIf="submitted && f.descricao.errors" class="invalid-feedback">
+                        <div *ngIf="f.descricao.errors.required">Descrição obrigatório</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group mb-3">

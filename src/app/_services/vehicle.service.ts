@@ -13,11 +13,11 @@ export class VehicleService {
     url = 'http://127.0.0.1:8000/api/veiculos';
   
     getAll() {
-        return this.http.get<Vehicle[]>(this.url);
+        return this.http.get<GetVehiclesResponse>(this.url);
     }
 
     getById(id: number) {
-        return this.http.get<Vehicle>(this.url + '/' + id);
+        return this.http.get<GetVehiclesResponse>(this.url + '/' + id);
     }
 
     create(Vehicle: Vehicle) {
