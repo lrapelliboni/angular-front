@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Veículos</h1>
+</div>
+
+<h3>Novo</h3>
+
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="vehicleAddForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label class="col-md-2">Veículo</label>
+                <div class="col-md-10">
+                    <input type="text" formControlName="veiculo" class="form-control border-0 shadow-sm px-4"
+                        [ngClass]="{ 'is-invalid': submitted && f.veiculo.errors }" />
+                    <div *ngIf="submitted && f.veiculo.errors" class="invalid-feedback">
+                        <div *ngIf="f.veiculo.errors.required">Veículo obrigatório</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="col-md-2">Marca</label>
+                <div class="col-md-10">
+                    <input type="text" formControlName="marca" class="form-control border-0 shadow-sm px-4" />
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="col-md-2">Ano</label>
+                <div class="col-md-10">
+                    <input type="text" formControlName="ano" class="form-control border-0 shadow-sm px-4" />
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="col-md-2">Descricao</label>
+                <div class="col-md-10">
+                    <textarea formControlName="descricao" class="form-control border-0 shadow-sm px-4"></textarea>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <div class="col-md-12">
+                    <div class="custom-control custom-checkbox">
+                        <input id="vendido" (change)="changeSold()" type="checkbox" formControlName="vendido"
+                            value="{{soldSelected}}" class="custom-control-input">
+                        <label class="custom-control-label" for="vendido">Vendido</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary text-uppercase mb-2 rounded-pill shadow-sm">Salvar
+            </button>
+        </form>
+    </div>
+</div>
